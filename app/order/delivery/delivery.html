@@ -1,0 +1,116 @@
+<div class="container">
+    
+    <div class="row">
+        
+        <div class = "col-xs-12 col-sm-6">
+                <h1>Choose place for delivery</h1>
+                <form name="searchForm" novalidate ng-submit="search()">
+                    <div class="input-group">
+                        <input name="place" type="text" class="form-control" ng-model="searchPlace" required autofocus />
+                        <span class="input-group-btn">
+                            <button class="btn btn-default myBtn" ng-disabled="searchForm.$invalid">Search</button>
+                        </span>
+                    </div>
+                </form>
+                    
+                <div id="map" class="map"></div><br>
+        </div>
+
+            <div class = "col-xs-12 col-sm-6">
+                 <h1>Choose date and time*</h1>
+                    <div class="row rowTop"> 
+                        <div class="col-sm-6 datePic">
+                                <p class="input-group">
+                                <input type="text" class="form-control" 
+                                       uib-datepicker-popup="{{format}}"
+                                       ng-model="dt" is-open="popup1.opened" 
+                                       datepicker-options="dateOptions" 
+                                       ng-required="true" 
+                                       close-text="Close" 
+                                       alt-input-formats="altInputFormats" />
+                                <span class="input-group-btn">
+                                  <button type="button" class="btn btn-default" 
+                                  ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                              </p>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div uib-timepicker ng-model="mytime" ng-change="changed()" hour-step="hstep" minute-step="mstep">       
+                        </div>
+                        </div>
+                    </div>
+            
+                <label for="time" class="col-xs-2 control-label">Date and time</label>
+                        <div class="col-xs-10">
+                        <pre class="alert"> Date: {{dt | date:"fullDate"}}. Time: {{mytime | date:'shortTime' }}</pre>
+                        </div>
+                
+            <h5 id="timeRequired">*Min time required: 24 hours</h5><br>
+
+<!-- checkbox-->                    
+        <form><span class="col-xs-2"><strong>Order Option: </strong></span>
+            <div class="col-xs-10">
+        <label class="checkbox-inline">
+            <input ng-model="showDelivery" type="checkbox" /> Delivery <i class="zmdi zmdi-car zmdi-hc-fw"></i>
+        </label>
+        <label class="checkbox-inline">
+                <input ng-model="showPickup" type="checkbox" />Pick Up <i class="zmdi zmdi-run zmdi-hc-fw"></i>
+        </label>
+        <label class="checkbox-inline">
+                <input type="checkbox" disabled/>Just Browsing <i class="zmdi zmdi-eye zmdi-hc-fw"></i>
+        <!--TO DO ng-model-->
+        </label>
+            </div>
+        </form><br><br>
+
+<!--show delivery or pick up -->                    
+<div ng-show="showDelivery"> 
+        <form class="form-horizontal" > 
+                <div class="form-group">
+                    <label for="resName" class="col-xs-2 control-label">Address</label>
+                    <div class="col-xs-10">
+                    <input name="resName" type="text" class="form-control" ng-model="place.name" readonly />
+                    </div>
+                </div>
+            
+                                
+                <div class="form-group">
+                    <label for="des" class="col-xs-2 control-label">Destination</label>
+                    <div class="col-xs-10">
+                     <input name="des" class="form-control" ng-model="place.destination" readonly/>
+                     </div>
+                </div>
+            
+                <div class="form-group">
+                    <label for="del" class="col-xs-2 control-label">Delivery</label>
+                    <div class="col-xs-10">
+                    <input name="del" class="form-control" ng-model="place.delivery" readonly />
+                    </div>
+                </div>
+        </form>
+</div>   <!--close show delivery or pick up -->
+
+<div ng-show="showPickup">
+    <h5><strong>Restaurant address: Krasnaya Sloboda str, 9.</strong> Crossing three roads: Nizhnevolzhskaya Embankment, Kazan descent (from the springboard and Sennay square) and George descent (from the Kremlin)</h5>
+</div>
+
+<!--buttons-->
+            <form>
+                <div class="form-group">
+                    <div class="col-xs-offset-2 col-xs-10">
+                        <div class="row">
+                        <div class="col-xs-6">
+                        <button class="btn btn-default btn-block myBtn" ng-click="clear()">Clear</button>
+                        </div>
+                        <div class="col-xs-6" >
+                        <button class="btn btn-default btn-block myBtn" ng-click="toMenuGallery()">Next</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>  
+            </form>
+            </div>
+            
+        </div>
+</div>
