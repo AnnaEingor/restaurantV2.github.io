@@ -77,14 +77,22 @@ float: right;
 }
 
 @media only screen and (max-width: 600px) {
-  .col-sm-10 {
+  /* .col-sm-10 {
     text-align: center;
     margin: 20px 0;
+} */
+.myMenu {
+  text-align: center;
+  margin: 20px 0;
 }
 .carousel-caption {
   display: none; 
 }
-  }
+.orderBtn{
+  float: none;
+  text-align: center;
+ }
+}
 
 .carousel-inner img {
     width: 100%;
