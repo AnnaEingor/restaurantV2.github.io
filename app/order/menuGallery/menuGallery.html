@@ -1,69 +1,76 @@
 <div class = "container-fluid">
-        <h2 id="startOrder">Click on any item below to start your order</h2><br>
-        <div class = "row">
-         <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-     
-           <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4  text-center" ng-repeat="order in orderArr">
-             
-            <div class="well">                          
-                 <h3>{{order.name}}</h3>
-                 <img ng-src="{{order.photo}}" class="img-responsive img-thumbnail" alt="Image" ng-click="openDetails(order)">
-                 <p>{{order.set}}</p>
-                 <p>{{order.price}} <span class ="glyphicon glyphicon-ruble"></p>
-                 <form>
-                    <div class="form-group form-group-sm">
-                      <label class="col-sm-5 control-label" for="sm">Quantity:</label>
-                      <div class="col-sm-7">
-                      <input class="form-control" type="number" placeholder="0" name="quantity" id="sm" min="0" ng-model="order.quantity"><br>
-                      </div>
-                    </div>
-                      <button type="button" class="btn submitten" ng-click="addToCart(order)">Add to my wish-list<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></button>
-                 </form>
-             
+<div class= "row">
+<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+<h2>Choose the dish and the quantity</h2>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 text-center" ng-repeat="order in orderArr">
+    <div class="well">                          
+        <h3>{{order.name}}</h3>
+        <img ng-src="{{order.photo}}" class="img-responsive img-thumbnail" alt="Image" ng-click="openDetails(order)">
+        <p>{{order.set}}</p>
+        <p>{{order.price}} <span class ="glyphicon glyphicon-ruble"></p>
+        <form>
+           <div class="form-group form-group-sm">
+             <label class="col-sm-5 control-label" for="sm">Quantity:</label>
+             <div class="col-sm-7">
+             <input class="form-control" type="number" placeholder="0" name="quantity" id="sm" min="0" ng-model="order.quantity"><br>
              </div>
-           
-         </div>    
-         </div>
-     
-<!--My wish-list -->
-         
-         <div class = "col-xs-12 col-sm-4 col-md-4 col-lg-4 table-responsive my-list">
-          <h4 class="wish">My wish-list</h4>
-           <table class="table table-hover table-striped">
-               <thead> 
-                   <th>Position</th>
-                   <th>Quantity</th>
-                   <th>Sum</th>
-                   <th>Change</th>
-                   <th>Delete</th>
-               </thead>
-                 <tfoot>
-                  <tr>
-                   <th></th>
-                   <th></th>
-                   <th><strong>Total: {{total()}}<span class ="glyphicon glyphicon-ruble"></span></strong> </th>
-                  </tr>
-                 </tfoot>
-                 <tbody>
-             <tr ng-repeat="item in cartArr">
-             <td>{{item.name}}</td>
-             <td>{{item.quantity}}</td> 
-             <td>{{item.price*item.quantity}}<span class ="glyphicon glyphicon-ruble"></td>
-             <td>
-               <button type="button" ng-click ="changeMinus(item)">  <span class="glyphicon glyphicon-minus" ></span></button>
-               <button type="button" ng-click ="changePlus(item)">  <span class="glyphicon glyphicon-plus" ></span></button>
-             </td>
-             <td><button type="button" ng-click ="removeItem(item)"><span class="glyphicon glyphicon-remove" ></span></button></td>   
-             
-             </tr>
-             </tbody>
-           </table>
-            <div class="btn-group">
-         <button class = "btn btn-danger " type = "button" ng-click="goToPayment()">To payment</button>
-        
            </div>
-         
-        </div> 
-       
-     </div>
+             <button type="button" class="btn myBtn" ng-click="addToCart(order)">Add to my wish-list<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></button>
+        </form>
+    </div>  
+    </div>
 </div>
+
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+  <h2>My wish-list</h2>
+  <div class="my-list">
+    <table class="table table-hover table-striped table-responsive">
+       <thead> 
+            <th>Position</th>
+            <th>Quantity</th>
+            <th>Sum</th>
+            <th>Change</th>
+            <th>Delete</th>
+        </thead>
+          <tfoot>
+            <tr>
+             <!--TO DO service for adding delivery-->
+            <th></th>
+            <th></th>
+            <th><strong>Total: {{total()}}<span class ="glyphicon glyphicon-ruble"></strong> </th>
+           </tr>
+           </tfoot>
+          <tbody>
+            
+      <tr ng-repeat="item in cartArr">
+      <td>{{item.name}}</td>
+      <td>{{item.quantity}}</td> 
+      <td>{{item.price*item.quantity}}<span class ="glyphicon glyphicon-ruble"></td>
+      <td>
+        <button type="button" ng-click ="changeMinus(item)">  <span class="glyphicon glyphicon-minus" ></span></button>
+        <button type="button" ng-click ="changePlus(item)">  <span class="glyphicon glyphicon-plus" ></span></button>
+      </td>
+      <td><button type="button" ng-click ="removeItem(item)"><span class="glyphicon glyphicon-remove" ></span></button></td>   
+      </tr>
+      
+    </tbody>
+   </table>
+
+  </div>
+  <h2>My order</h2>
+  <div class="my-list">
+  <table class="table table-hover table-striped table-responsive">
+    <tr><th>Position</th><th>Price</th></tr>
+    <tr><td>Cost of dishes</td><td>{{total()}}</td></tr>
+   <tr><td>Delivery</td><td>{{600}}</td></tr>
+   <tr><td>Total</td><td>{{total()+600}}</td></tr>
+  </table>
+  </div>
+  <div class="text-center">
+  <button type="button" class="btn redBtn" ng-click="goToPayment()">Go to Payment<span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span></button>
+  </div>
+</div>
+</div>
+</div>
+
+

@@ -1,4 +1,4 @@
-orderApp.controller("menuGalleryCtrl", function ($scope, $http, $location, $uibModal, menuTakeAway, orderService) {
+orderApp.controller("menuGalleryCtrl", function ($scope, $http, $location, $uibModal, menuTakeAway, orderService, Map) {
     
       $scope.orderArr = [];
       $http.get("app/data/menuTA.json").then(function (response) {
@@ -38,6 +38,8 @@ orderApp.controller("menuGalleryCtrl", function ($scope, $http, $location, $uibM
      $scope.goToPayment = function () {
          $location.path("/payment");
        };
+     
+    //$scope.delivery = Map.deliv;
     
     //   $scope.openDetails = function (order) {
     //      $uibModal.open({

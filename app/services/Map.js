@@ -35,7 +35,7 @@ orderApp.service('Map', function($q) {
         this.map.setCenter(res.geometry.location);
     }
 
-    this.deliv = function delivery(d){
+    this.deliv = function (d){
         var deliv = 0;
      if (d < 3000) {
            deliv = 500
@@ -48,7 +48,7 @@ orderApp.service('Map', function($q) {
         }
           else {
              deliv = 0;
-            alert("in your case, the cost of delivery will be determined by the manager");
+            alert("in your case, the cost of delivery will be determ by the manager");
            }
            return deliv;
      };

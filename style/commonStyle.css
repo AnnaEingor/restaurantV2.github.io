@@ -129,5 +129,11 @@ footer p{
 }
 .my-list{
   border: 2px solid #3d240b;
-  border-radius: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+.wish{
+  text-align: left;
+  font-weight: bold;
+
 }

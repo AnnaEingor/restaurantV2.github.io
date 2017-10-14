@@ -1,7 +1,7 @@
 orderApp.controller('newPlaceCtrl', function($scope, Map, $location) {
     
     $scope.place = {};
-    
+        
     $scope.search = function() {
         $scope.apiError = false;
         Map.search($scope.searchPlace)
@@ -9,13 +9,13 @@ orderApp.controller('newPlaceCtrl', function($scope, Map, $location) {
             function(res) { // success
                 Map.addMarker(res);
                 $scope.place.name = res.name;
-               console.log(res.geometry.location.lng());
+               //console.log(res.geometry.location.lng());
 
                var loc1 = new google.maps.LatLng(56.329549, 44.026211);
                var loc2 = new google.maps.LatLng(res.geometry.location.lat(), res.geometry.location.lng());
-               var dist=google.maps.geometry.spherical.computeDistanceBetween(loc1, loc2);
+               var dist = google.maps.geometry.spherical.computeDistanceBetween(loc1, loc2);
 
-               $scope.place.destination = Math.round(dist);
+              $scope.place.destination = Math.round(dist);
               $scope.place.delivery = Map.deliv(dist);
            
             },
