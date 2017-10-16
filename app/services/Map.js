@@ -46,6 +46,9 @@ orderApp.service('Map', function($q) {
           else if(d>=7000 && d < 10000){
         deliv = 1000;
         }
+        else if(d>=7000 && d < 15000){
+            deliv = 1300;
+            }
           else {
              deliv = 0;
             alert("in your case, the cost of delivery will be determ by the manager");

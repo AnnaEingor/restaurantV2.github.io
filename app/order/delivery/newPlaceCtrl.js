@@ -17,7 +17,7 @@ orderApp.controller('newPlaceCtrl', function($scope, Map, $location) {
 
               $scope.place.destination = Math.round(dist);
               $scope.place.delivery = Map.deliv(dist);
-           
+              sessionStorage.setItem("myDist", Map.deliv(dist));
             },
             function(status) { // error
                 $scope.apiError = true;

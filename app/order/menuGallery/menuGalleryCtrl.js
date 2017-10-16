@@ -38,8 +38,10 @@ orderApp.controller("menuGalleryCtrl", function ($scope, $http, $location, $uibM
      $scope.goToPayment = function () {
          $location.path("/payment");
        };
-     
-    //$scope.delivery = Map.deliv;
+    
+    var deliv = sessionStorage.getItem("myDist");
+    $scope.delivery = Number(deliv);
+    
     
     //   $scope.openDetails = function (order) {
     //      $uibModal.open({
