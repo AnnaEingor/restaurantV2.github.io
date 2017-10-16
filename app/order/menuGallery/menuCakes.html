@@ -14,15 +14,25 @@
         </select> <br><br>
         </form>
 
-        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 text-center" >
+        <div class="text-center" >
         <ul class="ulCake">
-          <li class="liCake" ng-repeat= "cake in cakes | filter:filterCake | orderBy:orderProp"  >
-          <div class="boxCakes">
-                <p>{{cake.name}}</p>
+          <li class="liCake col-xs-12 col-sm-3 col-md-3 col-lg-3" ng-repeat= "cake in cakes | filter:filterCake | orderBy:orderProp"  >
+          <div class="boxCakes well">
+                <h4><strong>{{cake.name}}</strong></h4>
             <img id="imgCake" src = "{{cake.photo}}" ng-click = "myFunc(cake)" ng-class = "{'redBorder': cake.isSelected}"/>
             <p>{{cake.description}}</p>
             <p>{{cake.price}} rub</p>
-            
+
+        <form>
+            <div class="form-group form-group-sm">
+              <label class="col-sm-5 control-label" for="sm">Quantity(kg):</label>
+              <div class="col-sm-7">
+              <input class="form-control" type="number" placeholder="0" name="quantity" id="sm" min="0" ng-model="cake.quantity"><br>
+              </div>
+            </div>
+            <!--TO DO for button ng-click="addToCart(order)"-->
+              <button type="button" class="btn btn-default myBtn" >Add to my wish-list<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></button>
+         </form>
             </div>
             </li>
         </ul>
