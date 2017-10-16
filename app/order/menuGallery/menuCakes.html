@@ -1,0 +1,31 @@
+<div class = "container-fluid">
+        
+        <h2 class="text-center">Cakes for order</h2>
+        
+        <form class="text-center">
+        Find: <input ng-model="filterCake.name"><br><br>
+
+        Sort by: <select ng-model ="orderProp">
+                 <option value = "description"> Description </option>
+                 <option value = "name"> Name </option>
+                 <option value = "price"> Price </option>
+                 <option value = ""> None </option>
+          
+        </select> <br><br>
+        </form>
+
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 text-center" >
+        <ul class="ulCake">
+          <li class="liCake" ng-repeat= "cake in cakes | filter:filterCake | orderBy:orderProp"  >
+          <div class="boxCakes">
+                <p>{{cake.name}}</p>
+            <img id="imgCake" src = "{{cake.photo}}" ng-click = "myFunc(cake)" ng-class = "{'redBorder': cake.isSelected}"/>
+            <p>{{cake.description}}</p>
+            <p>{{cake.price}} rub</p>
+            
+            </div>
+            </li>
+        </ul>
+        </div>
+       
+       </div>

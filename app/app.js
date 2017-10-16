@@ -14,6 +14,10 @@ orderApp.config(function($routeProvider){
       templateUrl: "app/order/menuGallery/menuGallery.html",
       controller: "menuGalleryCtrl"
      })
+.when("/orderCake", {
+        templateUrl: "app/order/menuGallery/menuCakes.html",
+        controller: "cakeGalleryCtrl"
+       })
   .when("/payment", {
       templateUrl: "app/order/payment/payment.html",
       // controller: "menuGalleryCtrl"

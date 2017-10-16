@@ -1,4 +1,4 @@
-orderApp.controller("menuGalleryCtrl", function ($scope, $http, $location, $uibModal, menuTakeAway, orderService, Map) {
+orderApp.controller("menuGalleryCtrl", function ($scope, $http, $location, $uibModal, menuTakeAway, orderService) {
     
       $scope.orderArr = [];
       $http.get("app/data/menuTA.json").then(function (response) {
