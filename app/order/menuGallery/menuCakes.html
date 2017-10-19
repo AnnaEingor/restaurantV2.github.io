@@ -1,5 +1,6 @@
 <div class = "container-fluid">
-        
+  <div class= "row">
+    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8"> 
         <h2 class="text-center">Cakes for order</h2>
         
         <form class="text-center">
@@ -9,6 +10,8 @@
                  <option value = "description"> Description </option>
                  <option value = "name"> Name </option>
                  <option value = "price"> Price </option>
+                 <option value = "dough"> Dough </option>
+                 <option value = "cream"> Cream </option>
                  <option value = ""> None </option>
           
         </select> <br><br>
@@ -16,11 +19,12 @@
 
         <div class="text-center" >
         <ul class="ulCake">
-          <li class="liCake col-xs-12 col-sm-3 col-md-3 col-lg-3" ng-repeat= "cake in cakes | filter:filterCake | orderBy:orderProp"  >
+          <li class="liCake col-xs-12 col-sm-4 col-md-4 col-lg-4" ng-repeat= "cake in cakes | filter:filterCake | orderBy:orderProp"  >
           <div class="boxCakes well">
                 <h4><strong>{{cake.name}}</strong></h4>
-            <img id="imgCake" src = "{{cake.photo}}" ng-click = "myFunc(cake)" ng-class = "{'redBorder': cake.isSelected}"/>
+            <img id="imgCake" src = "{{cake.photo}}" />
             <p>{{cake.description}}</p>
+            <p>{{cake.dough}}, {{cake.cream}}</p>
             <p>{{cake.price}} rub</p>
 
         <form>
@@ -37,5 +41,25 @@
             </li>
         </ul>
         </div>
-       
+    </div> <!--left end-->
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">  <!-- right start-->
+      <h2 class="text-center">My order</h2><br>
+      <p class="timeRequired text-center">*Min time required: 24 hours</p>
+      <div class="my-listCake">
+          <table class="table table-hover table-striped table-responsive">
+            <tr><th>Position</th><th>Quality</th><th>Price</th><th>Sum</th></tr>
+            <tr><th>{{tort.name}}</th><th>{{tort.qual}}</th><th>{{tort.price}}</th><th>{{Sum}}</th></tr>
+            <tr><td>Decoration</td><td></td></tr>
+           <tr><td>Delivery</td><td></td><td></td><td>{{1000}}</td></tr>
+           <tr><td>Total</td><td></td></tr>
+          </table>
+          </div>
+          <div class="text-center">
+          <button type="button" class="btn redBtn" ng-click="goToPayment()">Go to Payment<span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span></button>
+          </div>
+      </div> <!-- right end-->
+    </div> <!--row-->
        </div>
+
+
+       <!--ng-click = "myFunc(cake)" ng-class = "{'redBorder': cake.isSelected}"-->

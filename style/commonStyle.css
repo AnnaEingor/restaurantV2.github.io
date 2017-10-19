@@ -128,7 +128,7 @@ footer p{
 .rowTop{
   margin-top: 4px;
 }
-#timeRequired{
+.timeRequired{
   font-weight: bold;
   color: red;
 }

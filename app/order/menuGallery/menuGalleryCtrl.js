@@ -17,9 +17,9 @@ orderApp.controller("menuGalleryCtrl", function ($scope, $http, $location, $uibM
     
       $scope.quantityOfPosition = 0;
     
-      //TO DO delete all
-      $scope.removeItem = function (item) {
-        $scope.cartArr.splice(item, 1);
+       $scope.removeItem = function (item) {
+       $scope.cartArr.splice(item, 1);
+       orderService.remove(item);
       };
     
       $scope.changePlus = function (item) {

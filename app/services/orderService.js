@@ -18,9 +18,15 @@ orderApp.factory("orderService", function () {
         return sum;
     };
 
+    var remove = function(order){
+        orderArr.splice(order,1);
+
+    }
+
     return {
         addOrder: addOrder,
         getAllOrders: getAllOrders,
-        total: total
+        total: total,
+        remove: remove
     }
 });

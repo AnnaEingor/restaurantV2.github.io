@@ -5,16 +5,13 @@ orderApp.controller("cakeGalleryCtrl", function($scope, $http){
      this.name = cakeObj.name;
      this.price = cakeObj.price;
      this.description = cakeObj.description;
+     this.dough= cakeObj.dough;
+     this.cream = cakeObj.cream;
      this.photo = cakeObj.photo;
-     this.isSelected = false;
+    // this.isSelected = false;
     }
    
-   $scope.myFunc = function(actor){
-    for(var i=0; i<$scope.cakes.length; i++) {
-       $scope.cakes[i].isSelected = false;
-     }
-     cake.isSelected = true;
-   };
+   
    
    $http.get("app/data/cakesTA.json").then(function(response) {
  
@@ -23,6 +20,12 @@ orderApp.controller("cakeGalleryCtrl", function($scope, $http){
          $scope.cakes.push(new Cake(response.data[i]));
        }
    });
-   
+
+  //  $scope.myFunc = function(cake){
+  //   for(var i=0; i<$scope.cakes.length; i++) {
+  //      $scope.cakes[i].isSelected = false;
+  //    }
+  //    cake.isSelected = true;
+  //  };
 });
 
