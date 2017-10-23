@@ -1,0 +1,87 @@
+<div class="container-fluid gal-1">
+        <h2 class="text-center myHeader">Golden Hall</h2>
+        <p id="reserve" class="text-center">Making a reservation at restaurant is easy and takes just a couple of minutes. All you have to do is select 
+          party size and the date and time you require. You can order some welcome meals in advance. 
+          In this case, mark it in the wishes, and our manager will call you back. 
+          We look forward to welcoming you soon</p><br>
+        
+          <div class="row">
+          <div class="col-sm-4 text-center">
+            <img src="photos/big.jpg" class="img-thumbnail img-responsive" alt="hall"/>
+          </div>
+      
+          <div class="col-sm-8">
+           <div class="row">
+              <div class="col-sm-6 form-group">
+                  <!--name  -->
+              <p class="input-group">
+                <input class="form-control" name="name" placeholder="Name" type="text" required ng-model="clientName">
+              <span class="input-group-btn">
+                  <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-user"></i></button>  
+              </p>
+              </div>
+              <div class="col-sm-6 form-group">
+                  <!--number of people  -->
+                <input class="form-control" name="numPeople" placeholder="Number of people" type="number" min="1" required ng-model="quantity">
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-sm-6 form-group">
+                  <!--phone  -->
+              <p class="input-group">
+              <input class="form-control" name="phone" placeholder="Phone without space" type="tel" required>
+              <span class="input-group-btn">
+                  <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-phone"></i></button>
+              </p>
+              </div>
+      
+              <div class="col-sm-6 form-group">
+                  <!--email  -->
+               <p class = "input-group">
+                <input class="form-control" name="email" placeholder="Email" type="email" required>
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-envelope"></i></button>
+                </span>
+               </p>
+              </div>
+      
+            </div>
+      
+            <div class="row">
+            <div class="col-md-6">
+              <p class="dateAndTime">Choose date and time</p>
+              <p class="input-group">
+                <input type="text" class="form-control" uib-datepicker-popup="{{format}}"
+                      ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" 
+                      close-text="Close" alt-input-formats="altInputFormats" />
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+              </p>
+      
+            </div>
+             <div class="col-md-6">
+               <div uib-timepicker ng-model="mytime" ng-change="changed()" hour-step="hstep" minute-step="mstep">       
+                  </div>
+            </div>
+      
+            </div>
+           
+           
+            
+           
+           <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="4"></textarea><br>
+           <div class="row">
+              <div class="col-sm-12 form-group">
+              <pre class="alert">Your name is {{clientName}}, number of guests: {{quantity}}.   Date: {{dt | date:"fullDate"}}. Time: {{mytime | date:'shortTime' }}</pre>
+                <button class="btn pull-right myBtn" type="submit">Send</button> 
+                <button type="button" class="btn btn-default pull-right" ng-click="clear()">Clear</button>
+              </div>
+            </div> 
+          </div>
+      </div>
+            </div>
+        </div>
+      </div>
+      
